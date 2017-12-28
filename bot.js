@@ -103,6 +103,27 @@ function receivedMessage(event) {
     else if (messageText.includes('help')){
        sendHelpMessage(senderID);
     }
+    else if (messageText.includes('blog')){
+       sendBlogMessage(senderID);
+    }
+    else if (messageText.includes('mvp')){
+       sendMVPMessage(senderID);
+    }
+    else if (messageText.includes('angel')){
+       sendAngelMessage(senderID);
+    }
+    else if (messageText.includes('discover')){
+       sendProductHuntMessage(senderID);
+    }
+    else if (messageText.includes('entrepreneurship week')){
+       sendEWeekMessage(senderID);
+    }
+    else if (messageText.includes('how to')){
+       sendHowToMessage(senderID);
+    }
+    else if (messageText.includes('business model')){
+       sendBMCMessage(senderID);
+    }
     else {
       sendTextMessage(senderID, "I'm not sure the answer to that question. \u000AType 'help' for a list of avaiable prompts");
     }
@@ -405,6 +426,194 @@ function sendHelpMessage(recipientId) {
 
   callSendAPI(messageData);
 };
+
+function sendBlogMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "Check out our latest blog posts!",
+
+            buttons: [{
+              type: "web_url",
+              url: "http://millerec.com/blog/",
+              title: "View Blog"
+            }]
+          }]
+        }
+      }
+    }
+  };  
+  callSendAPI(messageData);
+}
+
+
+function sendMVPMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "MVPs can be a great way to quickly validate an idea. Here's one resource you can use to generate a website MVP:",
+
+            buttons: [{
+              type: "web_url",
+              url: "https://quickmvp.com/",
+              title: "View Blog"
+            }]
+          }]
+        }
+      }
+    }
+  };  
+  callSendAPI(messageData);
+}
+
+
+function sendAngelMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "Angel List can be a great way to meet other entrepreneurs!",
+
+            buttons: [{
+              type: "web_url",
+              url: "https://angel.co/",
+              title: "Make an account"
+            }]
+          }]
+        }
+      }
+    }
+  };  
+  callSendAPI(messageData);
+}
+
+
+function sendProductHuntMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "Product Hunt can be a great way to discover new ideas!",
+
+            buttons: [{
+              type: "web_url",
+              url: "https://www.producthunt.com/",
+              title: "Check it out"
+            }]
+          }]
+        }
+      }
+    }
+  };  
+  callSendAPI(messageData);
+}
+
+function sendEWeekMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "Entrepreneurship week is packed with events to validate your entrepreneurial ideas! To learn more and find out about upcoming Events, click the link below",
+
+            buttons: [{
+              type: "web_url",
+              url: "http://millerec.com/eweek/",
+              title: "Check it out"
+            }]
+          }]
+        }
+      }
+    }
+  };  
+  callSendAPI(messageData);
+}
+
+
+function sendHowToMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "For a helpful video series on topics related to entrepreneurship, check out the below playlist!",
+
+            buttons: [{
+              type: "web_url",
+              url: "https://youtu.be/xRyXo7mWj3A",
+              title: "Check it out"
+            }]
+          }]
+        }
+      }
+    }
+  };  
+  callSendAPI(messageData);
+}
+
+function sendBMCMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "The Business Model Canvas is an important component of any startup.  It allows you to describe, design, challenge, invent, and pivot your business model. To learn more, check out the below video:",
+
+            buttons: [{
+              type: "web_url",
+              url: "https://youtu.be/xRyXo7mWj3A",
+              title: "Check it out"
+            }]
+          }]
+        }
+      }
+    }
+  };  
+  callSendAPI(messageData);
+}
+
+
 
 function callSendAPI(messageData) {
   request({
