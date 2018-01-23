@@ -1,3 +1,5 @@
 # miller-center-bot
 
-A simple facebook bot for the Alan B. Miller Entrepreneurship Center - Hosted on glitch
+A facebook bot for the Miller Center 
+
+Created from [messenger-bot](https://glitch.com/~messenger-bot) and hosted on [glitch](https://glitch.com)
